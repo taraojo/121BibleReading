@@ -2,11 +2,22 @@ import React from "react";
 import NavBar from "./NavBar";
 
 const Header = props => {
-  const { title } = props;
+  const { title, description, imageSrc } = props;
+  const textColour = imageSrc ? 'white' : 'inherit';
+
   return (
-    <div>
+    <div style={{
+      backgroundImage: `url(${imageSrc}`,
+      padding: '1rem',
+      color: textColour,
+    }}>
       <NavBar {...props} />
-      <h1 style={{ textAlign: "center", fontWeight: "bold" }}>{title}</h1>
+      <h1 style={{
+        marginBottom: '0', paddingTop: '1rem', color: textColour
+      }}>
+        <strong>{title}</strong>
+      </h1>
+      <p>{description}</p>
     </div>
   );
 };

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Header from "./Header";
 import { Skeleton, Button } from "antd";
 import api from "./api";
+import PlaceholderHeader from "./img/placeholder_header.gif";
 
 class Plan extends Component {
   state = { plan: {} };
@@ -13,7 +14,7 @@ class Plan extends Component {
   render() {
     return (
       <div>
-        <Header title="Plan #1" backButton />
+        <Header title="Plan #1" description="This is an amazing plan" imageSrc={PlaceholderHeader} backButton />
         <Skeleton />
         <Skeleton />
         <Button
