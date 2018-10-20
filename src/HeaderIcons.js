@@ -11,7 +11,7 @@ const IconSection = styled(`div`)`
   font-size: 1rem;
 
   span {
-    margin-left: .5rem;
+    margin-left: 0.5rem;
   }
 `;
 
@@ -19,13 +19,16 @@ const HeaderIcons = ({ averageTime, difficulty }) => (
   <Fragment>
     <IconSection>
       <Icon type="clock-circle" />
-      <span>{averageTime}</span>
+      <span>{averageTime} mins</span>
     </IconSection>
     <IconSection>
       {[1, 2, 3].map((_, index) => (
-        <Icon key={_} component={() => FeatherSvg(index ? transparentWhite : '#fff')} />
+        <Icon
+          key={_}
+          component={() => FeatherSvg(index ? transparentWhite : "#fff")}
+        />
       ))}
-      <span>{difficulty}</span>
+      <span>Easy</span>
     </IconSection>
   </Fragment>
 );

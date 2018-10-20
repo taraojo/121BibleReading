@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Header from "./Header";
 import Content from "./Content";
-import { Skeleton, Button } from "antd";
+import { Button } from "antd";
 import api from "./api";
 import BlueHeaderImage from "./img/blueBackground.jpeg";
 
@@ -13,21 +13,19 @@ class Plan extends Component {
     this.setState({ plan });
   }
   render() {
-    const { name, averageTime, difficulty, description } = this.state.plan;
+    const { name, length, difficulty, description } = this.state.plan;
     return (
       <div>
         <Header
           title={name}
           imageSrc={BlueHeaderImage}
-          averageTime={averageTime}
+          averageTime={length}
           difficulty={difficulty}
           backButton
           withIcons
         />
         <Content>
-          <p>
-            {description}
-          </p>
+          <p>{description}</p>
           <Button
             type="primary"
             size="large"

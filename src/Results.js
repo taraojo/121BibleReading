@@ -4,6 +4,7 @@ import Header from "./Header";
 import Content from "./Content";
 import styled from "react-emotion";
 import api from "./api";
+import HeaderIcons from "./HeaderIcons";
 
 const Plan = styled(Card)`
   border-radius: 4px;
@@ -35,6 +36,7 @@ class Results extends Component {
             <Plan index={index} key={plan.name}>
               <PlanHeader>{plan.name}</PlanHeader>
               <p>{plan.description}</p>
+              <HeaderIcons averageTime={this.state.plans.length} />
               <Button
                 onClick={() => this.props.history.push(`/plan/${plan.id}`)}
                 ghost
