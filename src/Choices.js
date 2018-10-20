@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 // import { Slider, Select } from "antd";
 import { Button } from "antd";
-import Header from "./Header";
 import Content from "./Content";
 import styled, { css } from "react-emotion";
 import CharlieAndLola from "./img/charlieandlola.svg";

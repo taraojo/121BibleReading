@@ -13,7 +13,7 @@ class Plan extends Component {
     this.setState({ plan });
   }
   render() {
-    const { name, length, difficulty, description } = this.state.plan;
+    const { name, length, difficulty, description, id } = this.state.plan;
     return (
       <div>
         <Header
@@ -31,7 +31,7 @@ class Plan extends Component {
             size="large"
             style={{ margin: "0.5rem auto", textAlign: "center" }}
             onClick={() => {
-              this.props.history.push("/study/1");
+              this.props.history.push(`/sharing/${id}`);
             }}
             block
           >

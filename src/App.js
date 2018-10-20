@@ -6,6 +6,7 @@ import Choices from "./Choices";
 import Results from "./Results";
 import Plan from "./Plan";
 import Study from "./Study";
+import Sharing from "./Sharing";
 
 const App = () => (
   <Router>
@@ -14,6 +15,7 @@ const App = () => (
       <Route exact path="/choices" component={Choices} />
       <Route path="/results" component={Results} />
       <Route path="/plan/:id" component={Plan} />
+      <Route path="/sharing/:id" component={Sharing} />
       <Route path="/study/:id" component={Study} />
     </Switch>
   </Router>
