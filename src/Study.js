@@ -64,7 +64,7 @@ class Study extends Component {
   };
 
   render() {
-    const { study, plan, showSection } = this.state;
+    const { study = {}, plan, showSection } = this.state;
     const { name, length, difficulty } = plan;
 
     return (
@@ -78,6 +78,8 @@ class Study extends Component {
           withIcons
         />
         <Content>
+          {!study.content && (<p>oops, nothing to see here, come back when we've added some content!</p>)}
+          
           {study.content && this.getSection(showSection)}
 
           {study.content && (
