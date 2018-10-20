@@ -3,11 +3,14 @@ import Header from "./Header";
 import Content from "./Content";
 import api from "./api";
 import BlueHeaderImage from "./img/blueBackground.jpeg";
+import { Button } from "antd";
+import { Icon } from "antd";
 
 class Study extends Component {
   state = {
     study: {},
-    plan: {}
+    plan: {},
+    showSection: 0,
   };
 
   async componentDidMount() {
@@ -18,8 +21,22 @@ class Study extends Component {
     this.setState({ study, plan });
   }
 
+  nextSection = () => {
+    this.setState(({showSection}) => ({ showSection: showSection + 1 }));
+  }
+
+  previousSection = () => {
+    this.setState(({showSection}) => ({ showSection: showSection - 1 }));
+  }
+
+  getSection = (index) => {
+    const { content } = this.state.study;
+    const thing = Object.values(content[index]);
+    return thing;
+  }
+
   render() {
-    const { study, plan } = this.state;
+    const { study, plan, showSection } = this.state;
     const { name, length, difficulty } = plan;
 
     return (
@@ -33,11 +50,29 @@ class Study extends Component {
           withIcons
         />
         <Content>
-          {study.content &&
-            (study.content.map((obj) => {
-              const thing = Object.values(obj);
-              return (<p>{thing}</p>);
-            }))}
+          {study.content && this.getSection(showSection)}
+
+          <div style={{ textAlign: 'right' }}>
+            <Button
+              size="large"
+              style={{ margin: "0.5rem", textAlign: "center" }}
+              onClick={this.previousSection}
+            >
+              <Icon
+                type="arrow-left"
+              />
+            </Button>
+            <Button
+              type="primary"
+              size="large"
+              style={{ margin: "0.5rem", textAlign: "center" }}
+              onClick={this.nextSection}
+            >
+              <Icon
+                type="arrow-right"
+              />
+            </Button>
+          </div>
         </Content>
       </div>
     );
