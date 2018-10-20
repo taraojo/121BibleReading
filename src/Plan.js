@@ -15,7 +15,7 @@ class Plan extends Component {
   render() {
     return (
       <div>
-        <Header title="Plan #1" imageSrc={PlaceholderHeader} backButton />
+        <Header title="Plan #1" imageSrc={PlaceholderHeader} backButton withIcons />
         <Content>
           <Skeleton />
           <Skeleton />

@@ -1,8 +1,9 @@
 import React from "react";
 import NavBar from "./NavBar";
+import HeaderIcons from "./HeaderIcons";
 
 const Header = props => {
-  const { title, imageSrc } = props;
+  const { title, imageSrc, withIcons } = props;
   const textColour = imageSrc ? 'white' : 'inherit';
 
   return (
@@ -17,6 +18,11 @@ const Header = props => {
       }}>
         <strong>{title}</strong>
       </h1>
+      {withIcons &&
+        <HeaderIcons
+          averageTime="30 mins"
+          difficulty="Easy"
+        />}
     </div>
   );
 };
