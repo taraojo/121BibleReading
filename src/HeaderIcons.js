@@ -23,7 +23,7 @@ const HeaderIcons = ({ averageTime, difficulty }) => (
     </IconSection>
     <IconSection>
       {[1, 2, 3].map((_, index) => (
-        <Icon component={() => FeatherSvg(index ? transparentWhite : '#fff')} />
+        <Icon key={_} component={() => FeatherSvg(index ? transparentWhite : '#fff')} />
       ))}
       <span>{difficulty}</span>
     </IconSection>
