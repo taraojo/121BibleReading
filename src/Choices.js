@@ -16,6 +16,7 @@ class Choices extends Component {
           }}
           type="primary"
           style={{ margin: "0 auto", display: "flex" }}
+          size="large"
         >
           Find me plans
         </Button>
