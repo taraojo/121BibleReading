@@ -24,7 +24,7 @@ class Sharing extends Component {
   startStudy = async () => {
     const { id } = this.state.plan;
     const response = await api.startPlan(id);
-    this.props.history.push(`/study/${response}`);
+    this.props.history.push(`/study/${id}/${response}`);
   }
 
   render() {
