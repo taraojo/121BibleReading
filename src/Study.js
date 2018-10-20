@@ -95,12 +95,25 @@ class Study extends Component {
                 size="large"
                 style={{ margin: "0.5rem", textAlign: "center" }}
                 onClick={this.nextSection}
-                disabled={showSection === study.content.length}
+                disabled={showSection === study.content.length - 1}
               >
                 <Icon type="arrow-right" />
               </Button>
             </div>
           )}
+
+          {study.content &&
+            showSection === study.content.length - 1 && (
+              <Button
+                type="primary"
+                size="large"
+                style={{ margin: "1rem auto", textAlign: "center" }}
+                onClick={() => this.props.history.push(`/complete`)}
+                block
+              >
+                Complete plan
+              </Button>
+            )}
         </Content>
       </div>
     );

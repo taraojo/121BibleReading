@@ -8,6 +8,7 @@ import Plan from "./Plan";
 import Study from "./Study";
 import Sharing from "./Sharing";
 import Bible from "./Bible";
+import Complete from "./Complete";
 
 const App = () => (
   <Router>
@@ -19,6 +20,7 @@ const App = () => (
       <Route path="/sharing/:id" component={Sharing} />
       <Route path="/bible" component={Bible} />
       <Route path="/study/:planId/:id" component={Study} />
+      <Route path="/complete" component={Complete} />
     </Switch>
   </Router>
 );
