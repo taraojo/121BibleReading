@@ -56,7 +56,7 @@ class Results extends Component {
         <Header title="Choose a plan" backButton />
         <Content>
           {this.state.plans.map((plan, index) => (
-            <Plan index={index}>
+            <Plan index={index} key={plan.name}>
               <PlanHeader>{plan.name}</PlanHeader>
               <p>{plan.description}</p>
               <Button
