@@ -13,12 +13,21 @@ class Plan extends Component {
     this.setState({ plan });
   }
   render() {
+    const { name, averageTime, difficulty, description } = this.state.plan;
     return (
       <div>
-        <Header title="Plan #1" imageSrc={PlaceholderHeader} backButton />
+        <Header
+          title={name}
+          imageSrc={PlaceholderHeader}
+          averageTime={averageTime}
+          difficulty={difficulty}
+          backButton
+          withIcons
+        />
         <Content>
-          <Skeleton />
-          <Skeleton />
+          <p>
+            {description}
+          </p>
           <Button
             type="primary"
             size="large"

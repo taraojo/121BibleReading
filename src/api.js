@@ -6,6 +6,21 @@
 const getPlan = async id => {
   const response = await fetch(`${process.API_HOST}/get_plan/${id}`);
   return response.json().payload;
+// =======
+// const FAKE_RESULT_RESPONSE = {
+//   name: "Mark",
+//   description:
+//     "Discover who Jesus said he is and think about how characters in the Bible reacted to his message",
+//   difficulty: "Easy",
+//   averageTime: "30 mins",
+//   id: "0000"
+// };
+
+// const getPlan = async id => {
+//   // const response = await fetch(`${API_HOST}/get_plan/${id}`);
+//   // return response.json().payload;
+//   return Promise.resolve(FAKE_RESULT_RESPONSE);
+// >>>>>>> 6ed97bed9705c48eb37496a9c0d0ceee692e808c
 };
 
 /**
