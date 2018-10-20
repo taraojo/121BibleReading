@@ -17,7 +17,7 @@ class Home extends Component {
             type="primary"
             block
           >
-            Discover your plans
+            Find me plans
           </Button>
           <Button
             style={{ marginLeft: "auto", display: "flex", marginTop: "10px" }}
