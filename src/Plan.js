@@ -29,10 +29,11 @@ class Plan extends Component {
           <Button
             type="primary"
             size="large"
-            style={{ margin: "0 auto", display: "flex" }}
+            style={{ margin: "0.5rem auto", textAlign: "center" }}
             onClick={() => {
               this.props.history.push("/study/1");
             }}
+            block
           >
             Start plan
           </Button>
