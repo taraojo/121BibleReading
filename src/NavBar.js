@@ -10,7 +10,7 @@ class NavBar extends Component {
         {this.props.backButton && (
           <Icon
             onClick={() => this.props.history.goBack()}
-            type="left"
+            type="arrow-left"
             theme="outlined"
           />
         )}
