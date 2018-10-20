@@ -34,6 +34,15 @@ const getPlans = async scenario =>{
 }
 
 /**
+ * returns the study
+ * @param {string} id code
+ */
+const getCurrentStudy = async id =>{
+  const response = await fetch(`${process.API_HOST}/get_current_study/${id}`);
+  return response.json().payload; 
+}
+
+/**
  * 
  * @param {number} id 
  */
@@ -77,6 +86,24 @@ const getBible = async (book, verses) => {
   });
   return response.json().payload;
 };
+
+
+/**
+ * 
+ * @param {number} id of the study
+ * @param {string} code plan instance
+ */
+const getBible = async (id, code) => {
+  const response = await fetch(`${process.API_HOST}/bible/${id}`, {
+    headers: {
+      "Content-Type": "application/json"
+    },
+    method: "POST",
+    body: JSON.stringify(code)
+  });
+  return response.json().payload;
+};
+
 
 export default {
   getPlan,
