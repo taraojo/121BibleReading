@@ -40,7 +40,7 @@ class Complete extends Component {
             <Button
               size="large"
               onClick={() =>
-                this.props.history.push("/choices")
+                this.props.history.push("/home")
               }
               type="primary"
               block
