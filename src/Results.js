@@ -19,6 +19,7 @@ const Plan = styled(Card)`
 
 const PlanHeader = styled("h2")`
   font-size: 2.2em;
+  line-height: 1.2em;
 `;
 
 class Results extends Component {
@@ -41,6 +42,11 @@ class Results extends Component {
                 onClick={() => this.props.history.push(`/plan/${plan.id}`)}
                 ghost
                 block
+                style={{
+                  marginTop: "10px",
+                  color: index === 0 ? "white" : "rgba(0, 0, 0, 0.65)",
+                  borderColor: index === 0 ? "white" : "rgba(0, 0, 0, 0.65)"
+                }}
               >
                 Select plan
               </Button>

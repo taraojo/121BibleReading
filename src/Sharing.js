@@ -25,7 +25,7 @@ class Sharing extends Component {
     const { id } = this.state.plan;
     const response = await api.startPlan(id);
     this.props.history.push(`/study/${id}/${response}`);
-  }
+  };
 
   render() {
     const { name, length, difficulty, id } = this.state.plan;
@@ -40,22 +40,27 @@ class Sharing extends Component {
           withIcons
         />
         <Content>
-          <h3 style={{ textAlign: 'center', marginTop: '20px' }}>
-            Share this plan with your group
+          <h3 style={{ textAlign: "center", marginTop: "20px" }}>
+            Invite others to join this plan
           </h3>
-          <div style={{
-            background: 'white',
-            border: ' solid rgb(104,201,222) thin',
-            margin: '1rem 0',
-            padding: '1rem',
-            fontSize: '.8rem'
-          }}>
-            www.biblemate.co.uk/plans/{id}
+          <div
+            style={{
+              background: "white",
+              border: " solid rgb(104,201,222) thin",
+              margin: "1rem 0",
+              padding: "1rem",
+              fontSize: ".8rem"
+            }}
+          >
+            www.biblemate.co.uk/plans/
+            {id}
           </div>
 
-          <div style={{ textAlign: 'center', paddingBottom: '1.5rem' }}>
-          <a href={`whatsapp://send?text=Look at this great plan www.biblemate.co.uk/plans/{id}`}>
-            <img src={sharingIconsHACK} alt="" style={{ width: '75%' }} />
+          <div style={{ textAlign: "center", paddingBottom: "1.5rem" }}>
+            <a
+              href={`whatsapp://send?text=Look at this great plan www.biblemate.co.uk/plans/{id}`}
+            >
+              <img src={sharingIconsHACK} alt="" style={{ width: "75%" }} />
             </a>
           </div>
 
