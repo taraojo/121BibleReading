@@ -1,25 +1,17 @@
+const API_HOST = "http://biblemate.hack/api/v1";
+
+const makeRequest = async (url, options) => {
+  const raw = await fetch(url, options);
+  const response = await raw.json();
+  return response.payload;
+};
+
 /**
  *
  * @param {number} id
  */
 const getPlan = async id => {
-  const response = await fetch(`${process.API_HOST}/get_plan/${id}`);
-  return response.json().payload;
-  // =======
-  // const FAKE_RESULT_RESPONSE = {
-  //   name: "Mark",
-  //   description:
-  //     "Discover who Jesus said he is and think about how characters in the Bible reacted to his message",
-  //   difficulty: "Easy",
-  //   averageTime: "30 mins",
-  //   id: "0000"
-  // };
-
-  // const getPlan = async id => {
-  //   // const response = await fetch(`${API_HOST}/get_plan/${id}`);
-  //   // return response.json().payload;
-  //   return Promise.resolve(FAKE_RESULT_RESPONSE);
-  // >>>>>>> 6ed97bed9705c48eb37496a9c0d0ceee692e808c
+  return await makeRequest(`${API_HOST}/get_plan/${id}`);
 };
 
 /**
@@ -28,8 +20,7 @@ const getPlan = async id => {
  * 0, 1, 2
  */
 const getPlans = async scenario => {
-  const response = await fetch(`${process.API_HOST}/get_plans/${scenario}`);
-  return response.json().payload;
+  return await makeRequest(`${API_HOST}/get_plans/${scenario}`);
 };
 
 /**
@@ -37,8 +28,7 @@ const getPlans = async scenario => {
  * @param {number} id
  */
 const getStudy = async id => {
-  const response = await fetch(`${process.API_HOST}/get_study/${id}`);
-  return response.json().payload;
+  return await makeRequest(`${API_HOST}/get_study/${id}`);
 };
 
 /**
@@ -47,14 +37,13 @@ const getStudy = async id => {
  * this is the id of the plan we are wanting to start a plan for
  */
 const startPlan = async id => {
-  const response = await fetch(`${process.API_HOST}/start_plan/${id}`, {
+  return await makeRequest(`${API_HOST}/start_plan/${id}`, {
     headers: {
       "Content-Type": "application/json"
     },
     method: "POST",
     body: JSON.stringify({})
   });
-  return response.json().payload;
 };
 
 /**
@@ -67,7 +56,7 @@ const startPlan = async id => {
  * api bible api the server is using
  */
 const getBible = async (book, verses) => {
-  const response = await fetch(`${process.API_HOST}/bible/${book}`, {
+  const response = await fetch(`${API_HOST}/bible/${book}`, {
     headers: {
       "Content-Type": "application/json"
     },
