@@ -40,7 +40,7 @@ class Choices extends Component {
               text-align: center;
             `}
           >
-            I am reading with a...
+            <strong>I am reading the Bible with a</strong>
           </h3>
           <div
             className={css`
