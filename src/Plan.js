@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import Header from "./Header";
 import Content from "./Content";
-import { Skeleton, Button } from "antd";
+import { Button } from "antd";
 import api from "./api";
-import PlaceholderHeader from "./img/placeholder_header.gif";
+import BlueHeaderImage from "./img/blueBackground.jpeg";
 
 class Plan extends Component {
   state = { plan: {} };
@@ -13,28 +13,27 @@ class Plan extends Component {
     this.setState({ plan });
   }
   render() {
-    const { name, averageTime, difficulty, description } = this.state.plan;
+    const { name, length, difficulty, description, id } = this.state.plan;
     return (
       <div>
         <Header
           title={name}
-          imageSrc={PlaceholderHeader}
-          averageTime={averageTime}
+          imageSrc={BlueHeaderImage}
+          averageTime={length}
           difficulty={difficulty}
           backButton
           withIcons
         />
         <Content>
-          <p>
-            {description}
-          </p>
+          <p>{description}</p>
           <Button
             type="primary"
             size="large"
-            style={{ margin: "0 auto", display: "flex" }}
+            style={{ margin: "0.5rem auto", textAlign: "center" }}
             onClick={() => {
-              this.props.history.push("/study/1");
+              this.props.history.push(`/sharing/${id}`);
             }}
+            block
           >
             Start plan
           </Button>

@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 // import { Slider, Select } from "antd";
 import { Button } from "antd";
-import Header from "./Header";
 import Content from "./Content";
 import styled, { css } from "react-emotion";
+import CharlieAndLola from "./img/charlieandlola.svg";
+import NavBar from "./NavBar";
 
-const Choice = styled(Button)`
-  margin-bottom: 15px;
+const ImageContainer = styled(`div`)`
+  padding: 2rem 7rem;
 `;
 
 const handleChoice = choice => {
@@ -23,14 +24,22 @@ class Choices extends Component {
   render() {
     return (
       <div>
-        <Header title="Customise your plan" backButton />
+        <Content>
+          <NavBar backButton />
+        </Content>
+        <ImageContainer>
+          <img src={CharlieAndLola} alt="" />
+        </ImageContainer>
+        <h1 style={{ textAlign: 'center', marginBottom: '0' }}>
+          <strong>Customise your plan</strong>
+        </h1>
         <Content>
           <h3
             className={css`
               text-align: center;
             `}
           >
-            I am reading with a...
+            <strong>I am reading the Bible with a</strong>
           </h3>
           <div
             className={css`
@@ -39,29 +48,38 @@ class Choices extends Component {
               margin-top: 30px;
             `}
           >
-            <Choice
+            <Button
+              size="large"
               onClick={() =>
                 this.props.history.push("/results?scenario=non-christian")
               }
+              type="primary"
+              block
             >
               Non Christian
-            </Choice>
-            <Choice
+            </Button>
+            <Button
+              style={{ marginTop: "20px" }}
+              size="large"
               onClick={() =>
                 this.props.history.push("/results?scenario=new-christian")
               }
+              type="primary"
+              block
             >
               New Christian
-            </Choice>
-            <Choice
+            </Button>
+            <Button
+              style={{ marginTop: "20px" }}
+              size="large"
               onClick={() =>
-                this.props.history.push(
-                  "/results?scenario=experienced-christian"
-                )
+                this.props.history.push("/results?scenario=experienced-christian")
               }
+              type="primary"
+              block
             >
               Experienced Christian
-            </Choice>
+            </Button>
           </div>
         </Content>
       </div>

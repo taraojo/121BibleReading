@@ -3,29 +3,8 @@ import { Card, Button } from "antd";
 import Header from "./Header";
 import Content from "./Content";
 import styled from "react-emotion";
-
-const FAKE_RESULT_RESPONSE = {
-  response: "success",
-  payload: {
-    query: {
-      filter: "beg"
-    },
-    plans: [
-      {
-        name: "Mark",
-        description:
-          "Discover who Jesus said he is and think about how characters in the Bible reacted to his message",
-        id: "0000"
-      },
-      {
-        name: "Ephesians",
-        description:
-          "Discover who Jesus said he is and think about how characters in the Bible reacted to his message",
-        id: "0001"
-      }
-    ]
-  }
-};
+import api from "./api";
+import HeaderIcons from "./HeaderIcons";
 
 const Plan = styled(Card)`
   border-radius: 4px;
@@ -44,10 +23,8 @@ const PlanHeader = styled("h2")`
 
 class Results extends Component {
   state = { plans: [] };
-  componentDidMount() {
-    fetch("http://localhost:3000/api")
-      .then(response => FAKE_RESULT_RESPONSE)
-      .then(json => this.setState({ plans: json.payload.plans }));
+  async componentDidMount() {
+    this.setState({ plans: await api.getPlans(0) });
   }
 
   render() {
@@ -56,9 +33,10 @@ class Results extends Component {
         <Header title="Choose a plan" backButton />
         <Content>
           {this.state.plans.map((plan, index) => (
-            <Plan index={index}>
+            <Plan index={index} key={plan.name}>
               <PlanHeader>{plan.name}</PlanHeader>
               <p>{plan.description}</p>
+              <HeaderIcons averageTime={this.state.plans.length} />
               <Button
                 onClick={() => this.props.history.push(`/plan/${plan.id}`)}
                 ghost

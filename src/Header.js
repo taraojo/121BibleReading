@@ -9,6 +9,7 @@ const Header = props => {
   return (
     <div style={{
       backgroundImage: `url(${imageSrc}`,
+      backgroundSize: 'cover',
       padding: '1rem',
       color: textColour,
     }}>
