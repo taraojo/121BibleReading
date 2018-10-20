@@ -3,7 +3,7 @@ import Header from "./Header";
 import Content from "./Content";
 import { Skeleton, Button } from "antd";
 import api from "./api";
-import PlaceholderHeader from "./img/placeholder_header.gif";
+import BlueHeaderImage from "./img/blueBackground.jpeg";
 
 class Plan extends Component {
   state = { plan: {} };
@@ -18,7 +18,7 @@ class Plan extends Component {
       <div>
         <Header
           title={name}
-          imageSrc={PlaceholderHeader}
+          imageSrc={BlueHeaderImage}
           averageTime={averageTime}
           difficulty={difficulty}
           backButton
