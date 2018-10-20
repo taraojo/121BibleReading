@@ -2,7 +2,7 @@ import React from "react";
 import NavBar from "./NavBar";
 
 const Header = props => {
-  const { title, description, imageSrc } = props;
+  const { title, imageSrc } = props;
   const textColour = imageSrc ? 'white' : 'inherit';
 
   return (
@@ -17,7 +17,6 @@ const Header = props => {
       }}>
         <strong>{title}</strong>
       </h1>
-      <p>{description}</p>
     </div>
   );
 };
