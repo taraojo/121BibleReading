@@ -21,6 +21,12 @@ class Sharing extends Component {
     this.setState({ plan });
   }
 
+  startStudy = async () => {
+    const { id } = this.state.plan;
+    const response = await api.startPlan(id);
+    this.props.history.push(`/study/${id}/${response}`);
+  }
+
   render() {
     const { name, length, difficulty, id } = this.state.plan;
     return (
@@ -57,9 +63,7 @@ class Sharing extends Component {
             type="primary"
             size="large"
             style={{ margin: "0.5rem auto", textAlign: "center" }}
-            onClick={() => {
-              this.props.history.push(`/study/${id}`);
-            }}
+            onClick={this.startStudy}
             block
           >
             Go to plan

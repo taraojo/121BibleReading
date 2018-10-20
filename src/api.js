@@ -24,6 +24,14 @@ const getPlans = async scenario => {
 };
 
 /**
+ * returns the study
+ * @param {string} id code
+ */
+const getCurrentStudy = async id => {
+  return await makeRequest(`${API_HOST}/get_current_study/${id}`);
+};
+
+/**
  *
  * @param {number} id
  */
@@ -56,7 +64,7 @@ const startPlan = async id => {
  * api bible api the server is using
  */
 const getBible = async (book, verses) => {
-  return makeRequest(`${API_HOST}/bible/${book}`, {
+  return await makeRequest(`${API_HOST}/bible/${book}`, {
     headers: {
       "Content-Type": "application/json"
     },
@@ -65,10 +73,28 @@ const getBible = async (book, verses) => {
   });
 };
 
+/**
+ *
+ * @param {number} id of the study
+ * @param {string} code plan instance
+ */
+const completeStudy = async (id, code) => {
+  return await makeRequest(`${process.API_HOST}/complete_study/${id}`, {
+    headers: {
+      "Content-Type": "application/json"
+    },
+    method: "POST",
+    body: JSON.stringify(code)
+  });
+};
+
 export default {
   getPlan,
+  getCurrentStudy,
+  getBible,
   getPlans,
   getStudy,
   startPlan,
-  getBible
+  getBible,
+  completeStudy
 };
