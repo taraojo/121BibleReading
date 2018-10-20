@@ -52,27 +52,30 @@ class Study extends Component {
         <Content>
           {study.content && this.getSection(showSection)}
 
-          <div style={{ textAlign: 'right' }}>
-            <Button
-              size="large"
-              style={{ margin: "0.5rem", textAlign: "center" }}
-              onClick={this.previousSection}
-            >
-              <Icon
-                type="arrow-left"
-              />
-            </Button>
-            <Button
-              type="primary"
-              size="large"
-              style={{ margin: "0.5rem", textAlign: "center" }}
-              onClick={this.nextSection}
-            >
-              <Icon
-                type="arrow-right"
-              />
-            </Button>
-          </div>
+          {study.content &&
+            <div style={{ textAlign: 'right' }}>
+              <Button
+                size="large"
+                style={{ margin: "0.5rem", textAlign: "center" }}
+                onClick={this.previousSection}
+                disabled={showSection === 0}
+              >
+                <Icon
+                  type="arrow-left"
+                />
+              </Button>
+              <Button
+                type="primary"
+                size="large"
+                style={{ margin: "0.5rem", textAlign: "center" }}
+                onClick={this.nextSection}
+                disabled={showSection === study.content.length}
+              >
+                <Icon
+                  type="arrow-right"
+                />
+              </Button>
+            </div>}
         </Content>
       </div>
     );
