@@ -31,8 +31,12 @@ class Study extends Component {
 
   getSection = (index) => {
     const { content } = this.state.study;
-    const thing = Object.values(content[index]);
-    return thing;
+    const [entries] = Object.entries(content[index]);
+    return (
+      <div>
+        <h3 style={{ width: '100%', textTransform: 'capitalize' }}>{entries[0]}</h3>
+        <p style={{ width: '100%' }}>{entries[1]}</p>
+      </div>);
   }
 
   render() {
