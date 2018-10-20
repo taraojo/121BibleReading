@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Card, Skeleton, Icon } from "antd";
 import Header from "./Header";
+import Content from "./Content";
 import styled from "react-emotion";
 
 const FAKE_RESULT_RESPONSE = {
@@ -43,13 +44,15 @@ class Results extends Component {
   render() {
     return (
       <div>
-        <Header title="Choose a plan..." backButton />
-        {this.state.plans.map(plan => (
-          <Plan>
-            <h2>{plan.name}</h2>
-            <p>{plan.description}</p>
-          </Plan>
-        ))}
+        <Header title="Choose a plan" backButton />
+        <Content>
+          {this.state.plans.map(plan => (
+            <Plan>
+              <h2>{plan.name}</h2>
+              <p>{plan.description}</p>
+            </Plan>
+          ))}
+        </Content>
       </div>
     );
   }

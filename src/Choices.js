@@ -2,6 +2,7 @@ import React, { Component } from "react";
 // import { Slider, Select } from "antd";
 import { Button } from "antd";
 import Header from "./Header";
+import Content from "./Content";
 import styled, { css } from "react-emotion";
 
 const Choice = styled(Button)`
@@ -23,42 +24,46 @@ class Choices extends Component {
     return (
       <div>
         <Header title="Customise your plan" backButton />
-        <h3
-          className={css`
-            text-align: center;
-          `}
-        >
-          I am reading with a...
-        </h3>
-        <div
-          className={css`
-            display: flex;
-            flex-direction: column;
-            margin-top: 30px;
-          `}
-        >
-          <Choice
-            onClick={() =>
-              this.props.history.push("/results?scenario=non-christian")
-            }
+        <Content>
+          <h3
+            className={css`
+              text-align: center;
+            `}
           >
-            Non Christian
-          </Choice>
-          <Choice
-            onClick={() =>
-              this.props.history.push("/results?scenario=new-christian")
-            }
+            I am reading with a...
+          </h3>
+          <div
+            className={css`
+              display: flex;
+              flex-direction: column;
+              margin-top: 30px;
+            `}
           >
-            New Christian
-          </Choice>
-          <Choice
-            onClick={() =>
-              this.props.history.push("/results?scenario=experienced-christian")
-            }
-          >
-            Experienced Christian
-          </Choice>
-        </div>
+            <Choice
+              onClick={() =>
+                this.props.history.push("/results?scenario=non-christian")
+              }
+            >
+              Non Christian
+            </Choice>
+            <Choice
+              onClick={() =>
+                this.props.history.push("/results?scenario=new-christian")
+              }
+            >
+              New Christian
+            </Choice>
+            <Choice
+              onClick={() =>
+                this.props.history.push(
+                  "/results?scenario=experienced-christian"
+                )
+              }
+            >
+              Experienced Christian
+            </Choice>
+          </div>
+        </Content>
       </div>
     );
   }
