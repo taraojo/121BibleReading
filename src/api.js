@@ -56,19 +56,19 @@ const startPlan = async id => {
  * api bible api the server is using
  */
 const getBible = async (book, verses) => {
-  const response = await fetch(`${API_HOST}/bible/${book}`, {
+  return makeRequest(`${API_HOST}/bible/${book}`, {
     headers: {
       "Content-Type": "application/json"
     },
     method: "POST",
-    body: JSON.stringify(verses)
+    body: JSON.stringify({ verses: [verses] })
   });
-  return response.json().payload;
 };
 
 export default {
   getPlan,
   getPlans,
   getStudy,
-  startPlan
+  startPlan,
+  getBible
 };

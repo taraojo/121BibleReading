@@ -14,6 +14,14 @@ class NavBar extends Component {
             theme="outlined"
           />
         )}
+        {this.props.close && (
+          <Icon
+            onClick={() => this.props.history.goBack()}
+            type="close"
+            theme="outlined"
+            style={{ float: "right" }}
+          />
+        )}
       </div>
     );
   }
