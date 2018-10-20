@@ -3,6 +3,7 @@ import { Switch } from "react-router";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Choices from "./Choices";
 import Results from "./Results";
+import Plan from "./Plan";
 import Study from "./Study";
 
 const App = () => (
@@ -10,7 +11,8 @@ const App = () => (
     <Switch>
       <Route exact path="/" component={Choices} />
       <Route path="/results" component={Results} />
-      <Route path="/study" component={Study} />
+      <Route path="/plan/:id" component={Plan} />
+      <Route path="/study/:id" component={Study} />
     </Switch>
   </Router>
 );
